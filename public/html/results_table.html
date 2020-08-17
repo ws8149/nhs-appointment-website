@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #myInput {
+            background-image: url('/css/searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<nav id="firstnav" class="navbar navbar-light navbar-inverse navbar-fixed-top" style="background-color: white;">
+    <a href="../html/home.html" class="pull-left"><img src="../img/nhs.jpg" width="100" height="40" ></a>
+    <a class="nav-link" href="../html/home.html">BLOOD TEST DIARY</a>
+    <div class="searchbar">
+        <form class="form-inline">
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+            <i class="fa fa-search my-2 my-sm-0" aria-hidden="true"></i>
+        </form>
+    </div>
+    <a class="nav-link" href="../html/login.html">LOG OUT</a>
+</nav>
+
+<nav id="secondnav" class="navbar navbar-light navbar-inverse navbar-fixed-top" style="background-color: #000066;">
+    <a href="../html/entry.html" class="nav-link">DATA ENTRY</a>
+    <a href="../html/results.html" class="nav-link">RESULTS</a>
+    <a href="../html/info.html" class="nav-link">INFO</a>
+    <a href="../html/appointments.html" class="nav-link">APPOINTMENTS</a>
+
+</nav>
+
+<body>
+
+<h4>Results</h4>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<div class="container">
+  <table id="myTable">
+      <tr class="header">
+          <th>Name</th>
+          <th>Forename</th>
+          <th>Hospital No</th>
+          <th>Diagnosis</th>
+          <th>Transplant</th>
+          <th>Local Hospital</th>
+          <th>Comment</th>
+          <th>tAC</th>
+      </tr>
+      <tr>
+          <td>Alfreds</td>
+          <td>Johnson</td>
+          <td>23423432</td>
+          <td>Cancer</td>
+          <td>Lung</td>
+          <td>King's College Hospital</td>
+          <td>He is gonna die soon </td>
+          <td>Done </td>
+      </tr>
+      <tr>
+          <td>Berglunds snabbkop</td>
+          <td>Sweden</td>
+      </tr>
+      <tr>
+          <td>Island Trading</td>
+          <td>UK</td>
+      </tr>
+      <tr>
+          <td>Koniglich Essen</td>
+          <td>Germany</td>
+      </tr>
+      <tr>
+          <td>Laughing Bacchus Winecellars</td>
+          <td>Canada</td>
+      </tr>
+      <tr>
+          <td>Magazzini Alimentari Riuniti</td>
+          <td>Italy</td>
+      </tr>
+      <tr>
+          <td>North/South</td>
+          <td>UK</td>
+      </tr>
+      <tr>
+          <td>Paris specialites</td>
+          <td>France</td>
+      </tr>
+  </table>
+</div>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
